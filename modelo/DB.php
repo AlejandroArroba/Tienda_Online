@@ -23,5 +23,4 @@ class DB {
     public static function closeConnection() {
         self::$conn->close();
     }
-
 }

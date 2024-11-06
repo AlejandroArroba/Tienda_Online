@@ -1,5 +1,6 @@
 <?php
 require_once "DB.php";
+require_once "ProductoDTO.php";
 
 class ProductoDAO {
 
@@ -10,7 +11,7 @@ class ProductoDAO {
     }
 
     // Obtener un producto mediante su ID
-    public function getProductoById() {
+    public function getProductoById($id) {
         $sql = "SELECT * FROM producto WHERE id=:id";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(":id", $id);
@@ -38,7 +39,12 @@ class ProductoDAO {
     }
 
     // Añadir producto
-    public function addProducto() {
+    public function addProducto(ProductoDTO $producto) {
+        $nombre = $producto->getNombre();
+        $descripcion = $producto->getDescripcion();
+        $precio = $producto->getPrecio();
+        $cliente_id = $producto->getClienteId();
+
         $sql = "INSERT INTO producto (nombre, descripcion, precio, cliente_id) VALUES (:nombre, :descripcion, :precio, :cliente_id)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(":nombre", $nombre);
@@ -49,7 +55,13 @@ class ProductoDAO {
     }
 
     // Actualizar producto
-    public function updateProducto() {
+    public function updateProducto(ProductoDTO $producto) {
+        $id = $producto->getId();
+        $nombre = $producto->getNombre();
+        $descripcion = $producto->getDescripcion();
+        $precio = $producto->getPrecio();
+        $cliente_id = $producto->getClienteId();
+
         $sql = "UPDATE producto SET nombre=:nombre, descripcion=:descripcion, precio=:precio, cliente_id=:cliente_id WHERE id=:id";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(":nombre", $nombre);
@@ -61,7 +73,7 @@ class ProductoDAO {
     }
 
     // Borrar producto
-    public function deleteProducto() {
+    public function deleteProducto($id) {
         $sql = "DELETE FROM producto WHERE id=:id";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(":id", $id);

@@ -58,5 +58,4 @@ class ProductoDTO {
     function setClienteId($clienteId) {
         $this->clienteId = $clienteId;
     }
-
 }
