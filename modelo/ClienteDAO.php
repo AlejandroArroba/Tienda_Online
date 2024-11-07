@@ -10,11 +10,13 @@ class ClienteDAO {
         $this->conn = DB::getConnection();
     }
 
-    // Obtener un cliente mediante su ID
-    public function getClienteByNickname($nickname) {
-        $sql = "SELECT * FROM cliente WHERE nickname=$nickname";
+    // Obtener un cliente mediante su nombre de usuario y contraseña
+    public function getClienteByNicknameAndPassword($nickname, $password) {
+        $sql = "SELECT * FROM cliente WHERE nickname=:nickname AND password=:password";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(":id", $id);
+        $stmt->bindParam(":nickname", $nickname);
+        $stmt->bindParam(":password", $password);
+        $stmt->execute();
         $fila = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($fila) {
@@ -27,6 +29,7 @@ class ClienteDAO {
     public function getAllClientes() {
         $sql = "SELECT * FROM cliente";
         $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
         $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         $clientes = [];

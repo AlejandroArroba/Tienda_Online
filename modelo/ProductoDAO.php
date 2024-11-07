@@ -15,6 +15,7 @@ class ProductoDAO {
         $sql = "SELECT * FROM producto WHERE id=:id";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(":id", $id);
+        $stmt->execute();
         $fila = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($fila) {
