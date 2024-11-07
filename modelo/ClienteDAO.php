@@ -11,8 +11,8 @@ class ClienteDAO {
     }
 
     // Obtener un cliente mediante su ID
-    public function getClientesById() {
-        $sql = "SELECT * FROM cliente WHERE id=:id";
+    public function getClienteByNickname($nickname) {
+        $sql = "SELECT * FROM cliente WHERE nickname=$nickname";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(":id", $id);
         $fila = $stmt->fetch(PDO::FETCH_ASSOC);
