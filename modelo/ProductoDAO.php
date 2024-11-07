@@ -18,7 +18,7 @@ class ProductoDAO {
         $fila = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($fila) {
-            return new ProductoDTO($fila["id"], $fila["nombre"], $fila["descripcion"], $fila["precio"], $fila["cliente_id"]);
+            return new ProductoDTO($fila["nombre"], $fila["descripcion"], $fila["precio"], $fila["cliente_id"]);
         }
         return null; // si no se encuentra, devolvemos null
     }
@@ -32,7 +32,7 @@ class ProductoDAO {
 
         $productos = [];
         foreach ($resultados as $fila) {
-            $producto = new ProductoDTO($fila["id"], $fila["nombre"], $fila["descripcion"], $fila["precio"], $fila["cliente_id"]);
+            $producto = new ProductoDTO($fila["nombre"], $fila["descripcion"], $fila["precio"], $fila["cliente_id"]);
             $productos[] = $producto;
         }
         return $productos;
@@ -55,8 +55,7 @@ class ProductoDAO {
     }
 
     // Actualizar producto
-    public function updateProducto(ProductoDTO $producto) {
-        $id = $producto->getId();
+    public function updateProducto($id, ProductoDTO $producto) {
         $nombre = $producto->getNombre();
         $descripcion = $producto->getDescripcion();
         $precio = $producto->getPrecio();
