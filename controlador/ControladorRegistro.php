@@ -3,10 +3,10 @@ session_start();
 require_once '../modelo/ClienteDTO.php';
 require_once '../modelo/ClienteDAO.php';
 
-if (empty(trim($_POST["nombre"]))
-    || empty(trim($_POST["apellido"]))
-    || empty(trim($_POST["nickname"]))
-    || empty(trim($_POST["password"]))) {
+if (trim($_POST["nombre"]) == ""
+    || trim($_POST["apellido"]) == ""
+    || trim($_POST["nickname"]) == ""
+    || trim($_POST["password"]) == "") {
     $_SESSION["errorRegistro"] = "Por favor, compruebe que ha introducido todos los datos necesarios.";
     header("location: ../vista/registro.php");
 } else {

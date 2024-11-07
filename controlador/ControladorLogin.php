@@ -2,7 +2,7 @@
 session_start();
 require_once '../modelo/ClienteDAO.php';
 
-if (empty(trim($_POST["nickname"])) || empty(trim($_POST["password"]))) {
+if (trim($_POST["nickname"] == "") || trim($_POST["password"] == "")) {
     $_SESSION["errorLogin"] = "Por favor, introduzca los datos.";
     header("location: ../vista/login.php");
 } else {
