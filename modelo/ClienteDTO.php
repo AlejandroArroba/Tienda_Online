@@ -2,6 +2,7 @@
 
 class ClienteDTO {
 
+    private $id;
     private $nombre;
     private $apellido;
     private $nickname;
@@ -9,7 +10,8 @@ class ClienteDTO {
     private $telefono;
     private $domicilio;
 
-    public function __construct($nombre, $apellido, $nickname, $password, $telefono, $domicilio) {
+    public function __construct($id, $nombre, $apellido, $nickname, $password, $telefono, $domicilio) {
+        $this->id = $id;
         $this->nombre = $nombre;
         $this->apellido = $apellido;
         $this->nickname = $nickname;
@@ -21,6 +23,10 @@ class ClienteDTO {
     // ---------------------
     //   GETTERS Y SETTERS
     // ---------------------
+    public function getId() {
+        return $this->id;
+    }
+
     public function getNombre() {
         return $this->nombre;
     }
@@ -43,6 +49,10 @@ class ClienteDTO {
 
     public function getDomicilio() {
         return $this->domicilio;
+    }
+
+    public function setId($id) {
+        $this->id = $id;
     }
 
     public function setNombre($nombre) {
