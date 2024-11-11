@@ -2,12 +2,14 @@
 
 class CompraDTO {
 
+    private $id;
     private $idCliente;
     private $idProducto;
     private $fechaCompra;
     private $cantidad;
 
-    public function __construct($idCliente, $idProducto, $fechaCompra, $cantidad) {
+    public function __construct($id, $idCliente, $idProducto, $fechaCompra, $cantidad) {
+        $this->id = $id;
         $this->idCliente = $idCliente;
         $this->idProducto = $idProducto;
         $this->fechaCompra = $fechaCompra;
@@ -17,6 +19,14 @@ class CompraDTO {
     // ---------------------
     //   GETTERS Y SETTERS
     // ---------------------
+    public function getId() {
+        return $this->id;
+    }
+
+    public function setId($id) {
+        $this->id = $id;
+    }
+
     public function getIdCliente() {
         return $this->idCliente;
     }

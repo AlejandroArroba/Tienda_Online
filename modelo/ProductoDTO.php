@@ -2,50 +2,51 @@
 
 class ProductoDTO {
 
+    private $id;
     private $nombre;
     private $descripcion;
     private $precio;
-    private $clienteId;
 
-    function __construct($nombre, $descripcion, $precio, $clienteId) {
+    public function __construct($id, $nombre, $descripcion, $precio) {
+        $this->id = $id;
         $this->nombre = $nombre;
         $this->descripcion = $descripcion;
         $this->precio = $precio;
-        $this->clienteId = $clienteId;
     }
 
     // ---------------------
     //   GETTERS Y SETTERS
     // ---------------------
-    function getNombre() {
+    public function getId() {
+        return $this->id;
+    }
+
+    public function getNombre() {
         return $this->nombre;
     }
 
-    function getDescripcion() {
+    public function getDescripcion() {
         return $this->descripcion;
     }
 
-    function getPrecio() {
+    public function getPrecio() {
         return $this->precio;
     }
 
-    function getClienteId() {
-        return $this->clienteId;
+    public function setId($id) {
+        $this->id = $id;
     }
 
-    function setNombre($nombre) {
+    public function setNombre($nombre) {
         $this->nombre = $nombre;
     }
 
-    function setDescripcion($descripcion) {
+    public function setDescripcion($descripcion) {
         $this->descripcion = $descripcion;
     }
 
-    function setPrecio($precio) {
+    public function setPrecio($precio) {
         $this->precio = $precio;
     }
 
-    function setClienteId($clienteId) {
-        $this->clienteId = $clienteId;
-    }
 }

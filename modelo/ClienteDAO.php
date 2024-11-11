@@ -20,7 +20,7 @@ class ClienteDAO {
         $fila = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($fila) {
-            return new ClienteDTO($fila["nombre"], $fila["apellido"], $fila["nickname"], $fila["password"], $fila["telefono"], $fila["domicilio"]);
+            return new ClienteDTO(null, $fila["nombre"], $fila["apellido"], $fila["nickname"], $fila["password"], $fila["telefono"], $fila["domicilio"]);
         }
         return null; // si no se encuentra, devolvemos null
     }
@@ -34,7 +34,7 @@ class ClienteDAO {
 
         $clientes = [];
         foreach ($resultados as $fila) {
-            $cliente = new ClienteDTO($fila["nombre"], $fila["apellido"], $fila["nickname"], $fila["password"], $fila["telefono"], $fila["domicilio"]);
+            $cliente = new ClienteDTO(null, $fila["nombre"], $fila["apellido"], $fila["nickname"], $fila["password"], $fila["telefono"], $fila["domicilio"]);
             $clientes[] = $cliente;
         }
         return $clientes;

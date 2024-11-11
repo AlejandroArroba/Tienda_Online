@@ -3,7 +3,6 @@ require_once "DB.php";
 require_once "CompraDTO.php";
 class CompraDAO {
 
-
     private $conn;
 
     public function __construct() {
@@ -19,7 +18,7 @@ class CompraDAO {
 
         $compras = [];
         foreach ($resultados as $fila) {
-            $compra = new CompraDTO($fila["cliente_id"], $fila["producto_id"], $fila["fecha_compra"], $fila["cantidad"]);
+            $compra = new CompraDTO(null, $fila["cliente_id"], $fila["producto_id"], $fila["fecha_compra"], $fila["cantidad"]);
             $compras[] = $compra;
         }
         return $compras;
