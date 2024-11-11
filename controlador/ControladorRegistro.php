@@ -21,7 +21,7 @@ if (trim($_POST["nombre"]) == ""
     try {
         $clienteDAO = new ClienteDAO();
         $clienteDAO->addCliente($cliente);
-        header("location: ../vista/index.php");
+        header("location: ../vista/login.php");
     } catch (Exception $e) {
         $_SESSION["errorRegistro"] = "Error al registrar al usuario. Revise los datos.";
         header("location: ../vista/registro.php");

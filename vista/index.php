@@ -13,9 +13,10 @@
     <a href="compra.php" class="cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
 </div>
 <div class="navbar">
-    <a href="anadir.php">Añadir Productos</a>
     <a href="mostrar.php">Mostrar Productos</a>
+    <a href="anadir.php">Añadir Productos</a>
     <a href="update.php">Actualizar Productos</a>
+    <a href="delete.php">Borrar Productos</a>
 </div>
 </body>
 </html>
