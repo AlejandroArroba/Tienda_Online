@@ -4,11 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de Sesión</title>
-    <style>
-        .error {
-            color: red;
-        }
-    </style>
 </head>
 <body>
 
@@ -30,7 +25,7 @@
     <?php
         session_start();
         if (isset($_SESSION["errorLogin"])) {
-            echo "<span class='error'>$_SESSION[errorLogin]</span>";
+            echo "<p class='error'>$_SESSION[errorLogin]</p>";
             unset($_SESSION["errorLogin"]);
         }
     ?>

@@ -36,3 +36,8 @@ body {
     cursor: pointer;
     text-decoration: none;
 }
+
+.error {
+    font-size: 20pt;
+    color: red;
+}
