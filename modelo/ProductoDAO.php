@@ -19,7 +19,7 @@ class ProductoDAO {
         $fila = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($fila) {
-            return new ProductoDTO(null, $fila["nombre"], $fila["descripcion"], $fila["precio"]);
+            return new ProductoDTO($fila["id"], $fila["nombre"], $fila["descripcion"], $fila["precio"]);
         }
         return null; // si no se encuentra, devolvemos null
     }
