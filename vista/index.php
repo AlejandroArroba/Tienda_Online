@@ -20,7 +20,7 @@ $productos = $productoDAO->getAllProductos();
     </div>
     <div class="navbar">
         <a href="buscar.php">Buscar Producto</a>
-        <a href="anadir.php">Añadir Productos</a>
+        <a href="anadir.php">Añadir Producto</a>
         <a href="update.php">Actualizar Productos</a>
         <a href="delete.php">Borrar Productos</a>
     </div>
