@@ -9,6 +9,19 @@ class CompraDAO {
         $this->conn = DB::getConnection();
     }
 
+    public function getCompraById($compraId) {
+        $sql = "SELECT * FROM compra WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(":id", $compraId);
+        $stmt->execute();
+        $fila = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($fila) {
+            return new CompraDTO($fila["id"], $fila["cliente_id"], $fila["producto_id"], $fila["fecha_compra"], $fila["cantidad"]);
+        }
+        return null; // si no se encuentra, devolvemos null
+    }
+
     public function getComprasByClienteId($clienteId) {
         $sql = "SELECT * FROM compra WHERE cliente_id=:cliente_id";
         $stmt = $this->conn->prepare($sql);

@@ -27,6 +27,7 @@ $productos = $productoDAO->getAllProductos();
     <h1>Lista de productos</h1>
     <table>
         <tr>
+            <th>ID</th>
             <th>Nombre</th>
             <th>Descripcion</th>
             <th>Precio</th>

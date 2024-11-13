@@ -15,18 +15,14 @@
     </head>
     <body>
     <div class="header">
-        Inicio
+        <a href="index.php" class="house-icon"><i class="fa-solid fa-house"></i></a>
+        Borrar Producto
         <a href="compra.php" class="cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
-    </div>
-    <div class="navbar">
-        <a href="buscar.php">Buscar Producto</a>
-        <a href="anadir.php">Añadir Producto</a>
-        <a href="update.php">Actualizar Productos</a>
-        <a href="delete.php">Borrar Productos</a>
     </div>
     <h1>Lista de productos</h1>
     <table>
         <tr>
+            <th>ID</th>
             <th>Nombre</th>
             <th>Descripcion</th>
             <th>Precio</th>
@@ -34,12 +30,13 @@
         </tr>
         <?php foreach ($productos as $producto) { ?>
             <tr>
+                <td><?= $producto->getId() ?></td>
                 <td><?= $producto->getNombre() ?></td>
                 <td><?= $producto->getDescripcion() ?></td>
                 <td><?= $producto->getPrecio() ?></td>
                 <td>
                     <form action="../controlador/ControladorBorrar.php" method="POST">
-                        <button name="idProducto" value="<?= $producto->getId() ?>" type="submit">Eliminar</button>
+                        <button name="idProducto" value="<?= $producto->getId() ?>" type="submit">🗑️</button>
                     </form>
                 </td>
             </tr>

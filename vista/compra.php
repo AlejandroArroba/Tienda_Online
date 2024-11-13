@@ -14,12 +14,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Carrito de la compra</title>
+        <title>Carrito de la Compra</title>
         <link rel="stylesheet" href="../resources/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     </head>
     <body>
     <div class="header">
+        <a href="index.php" class="house-icon"><i class="fa-solid fa-house"></i></a>
         Carrito de la compra
         <a href="compra.php" class="cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
     </div>
@@ -35,6 +36,7 @@
             <th>Precio</th>
             <th>Añadido en</th>
             <th>Cantidad</th>
+            <th colspan="2">Acciones</th>
         </tr>
         <?php
                 foreach ($compras as $compra) {
@@ -46,6 +48,16 @@
                 <td><?= $producto->getPrecio() ?></td>
                 <td><?= $compra->getFechaCompra() ?></td>
                 <td><?= $compra->getCantidad() ?></td>
+                <td>
+                    <form action="../controlador/ControladorBorrarCompra.php" method="POST">
+                        <button name="idCompra" value="<?= $compra->getId() ?>" type="submit">➖</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="../controlador/ControladorBorrarCompraTotal.php" method="POST">
+                        <button name="idCompra" value="<?= $compra->getId() ?>" type="submit">🗑️</button>
+                    </form>
+                </td>
             </tr>
         <?php
                 }
