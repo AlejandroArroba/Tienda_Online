@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once "../modelo/ProductoDAO.php";
     $productoDAO = new ProductoDAO();
     $productos = $productoDAO->getAllProductos();
@@ -18,6 +19,11 @@
         <a href="index.php" class="house-icon"><i class="fa-solid fa-house"></i></a>
         Borrar Producto
         <a href="compra.php" class="cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
+        <p class="usuario"><?= $_SESSION["nombreUsuario"] ?></p>
+
+        <form action="../controlador/ControladorSignOut.php">
+            <button type="submit" class="salida"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+        </form>
     </div>
     <h1>Lista de productos</h1>
     <table>

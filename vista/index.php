@@ -1,7 +1,8 @@
 <?php
-require_once "../modelo/ProductoDAO.php";
-$productoDAO = new ProductoDAO();
-$productos = $productoDAO->getAllProductos();
+    require_once "../modelo/ProductoDAO.php";
+    session_start();
+    $productoDAO = new ProductoDAO();
+    $productos = $productoDAO->getAllProductos();
 ?>
 
 <!doctype html>
@@ -15,8 +16,14 @@ $productos = $productoDAO->getAllProductos();
     </head>
     <body>
     <div class="header">
+        <a href="index.php" class="house-icon"><i class="fa-solid fa-house"></i></a>
         Inicio
         <a href="compra.php" class="cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
+        <p class="usuario">¡¡Hola, <?= $_SESSION["nombreUsuario"] ?>!!</p>
+
+        <form action="../controlador/ControladorSignOut.php">
+            <button type="submit" class="salida"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+        </form>
     </div>
     <div class="navbar">
         <a href="buscar.php">Buscar Producto</a>

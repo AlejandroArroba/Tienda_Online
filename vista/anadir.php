@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!doctype html>
 <html lang="es">
 <head>
@@ -12,6 +15,11 @@
         <a href="index.php" class="house-icon"><i class="fa-solid fa-house"></i></a>
         Añadir Producto
         <a href="compra.php" class="cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
+        <p class="usuario"><?= $_SESSION["nombreUsuario"] ?></p>
+
+        <form action="../controlador/ControladorSignOut.php">
+            <button type="submit" class="salida"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+        </form>
     </div>
     <form action="../controlador/ControladorAnadir.php" method="post" enctype="multipart/form-data">
         <label for="nombre">Nombre:</label>
@@ -27,7 +35,6 @@
     </form>
     <?php
     require_once "../modelo/ProductoDTO.php";
-    session_start();
     if (isset($_SESSION['errorAnadir'])) {
         echo "<span class='error'> Por favor rellene todos los datos</span>";
         unset($_SESSION['errorAnadir']);

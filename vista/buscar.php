@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!doctype html>
 <html lang="es">
     <head>
@@ -12,6 +16,11 @@
         <a href="index.php" class="house-icon"><i class="fa-solid fa-house"></i></a>
         Buscar Producto
         <a href="compra.php" class="cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
+        <p class="usuario">¡¡Hola, <?= $_SESSION["nombreUsuario"] ?>!!</p>
+
+        <form action="../controlador/ControladorSignOut.php">
+            <button type="submit" class="salida"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+        </form>
     </div>
     <form action="../controlador/ControladorBuscar.php" method="post">
         <label for="id">ID del producto a buscar:</label>
@@ -20,7 +29,6 @@
     </form>
     <?php
         require_once "../modelo/ProductoDTO.php";
-        session_start();
         if (isset($_SESSION["errorId"])) {
             echo "<span class='error'>Por favor, introduzca un id</span>";
             unset($_SESSION["errorId"]);

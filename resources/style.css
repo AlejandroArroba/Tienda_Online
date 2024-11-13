@@ -40,7 +40,7 @@ body {
 .cart-icon {
     position: absolute;
     top: 20px;
-    right: 20px;
+    left: 80px;
     color: #fff;
     font-size: 24px;
     cursor: pointer;
@@ -59,4 +59,16 @@ body {
     font-size: 24px;
     cursor: pointer;
     text-decoration: none;
+}
+
+.usuario {
+    position: absolute;
+    top: 0px;
+    right: 55px;
+}
+
+.salida {
+    position: absolute;
+    top: 28px;
+    right: 20px;
 }

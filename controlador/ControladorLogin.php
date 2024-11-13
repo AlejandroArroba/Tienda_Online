@@ -14,6 +14,7 @@ if (trim($_POST["nickname"] == "") || trim($_POST["password"] == "")) {
     $cliente = $clienteDAO->getClienteByNicknameAndPassword($nickname, $password);
     if ($cliente != null) {
         $_SESSION["idUsuario"] = $cliente->getId();
+        $_SESSION["nombreUsuario"] = $cliente->getNickname();
         header("location: ../vista/index.php");
     } else {
         $_SESSION["errorLogin"] = "Inicio de sesión incorrecto. Revise los datos.";
