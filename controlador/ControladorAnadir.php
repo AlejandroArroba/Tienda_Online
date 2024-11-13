@@ -5,7 +5,7 @@ require_once "../modelo/ProductoDTO.php";
 
 if (trim($_POST["nombre"]) == "" || trim($_POST["descripcion"]) == "" || trim($_POST["precio"] == "")) {
     $_SESSION["errorAnadir"] = "Rellene todos los datos para continuar";
-    header("Location: ../vistas/anadir.php");
+    header("Location: ../vista/anadir.php");
 } else {
     $nombre = trim($_POST["nombre"]);
     $descripcion = trim($_POST["descripcion"]);
