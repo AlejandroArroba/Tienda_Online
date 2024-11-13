@@ -21,8 +21,8 @@ $productos = $productoDAO->getAllProductos();
     <div class="navbar">
         <a href="buscar.php">Buscar Producto</a>
         <a href="anadir.php">Añadir Producto</a>
-        <a href="update.php">Actualizar Productos</a>
-        <a href="delete.php">Borrar Productos</a>
+        <a href="update.php">Actualizar Producto</a>
+        <a href="delete.php">Borrar Producto</a>
     </div>
     <h1>Lista de productos</h1>
     <table>

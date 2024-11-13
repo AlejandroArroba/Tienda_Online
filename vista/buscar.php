@@ -9,6 +9,7 @@
     </head>
     <body>
     <div class="header">
+        <a href="index.php" class="house-icon"><i class="fa-solid fa-house"></i></a>
         Buscar Producto
         <a href="compra.php" class="cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
     </div>
