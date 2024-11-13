@@ -3,7 +3,6 @@ session_start();
 require_once "../modelo/ProductoDAO.php";
 require_once "../modelo/ProductoDTO.php";
 
-
 if ($_POST["id"] == "") {
     $_SESSION["errorId"] = "El id es inválido";
 } else {

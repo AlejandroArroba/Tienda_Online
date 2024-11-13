@@ -33,7 +33,7 @@ class ProductoDAO {
 
         $productos = [];
         foreach ($resultados as $fila) {
-            $producto = new ProductoDTO(null, $fila["nombre"], $fila["descripcion"], $fila["precio"]);
+            $producto = new ProductoDTO($fila["id"], $fila["nombre"], $fila["descripcion"], $fila["precio"]);
             $productos[] = $producto;
         }
         return $productos;

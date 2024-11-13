@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "../modelo/ProductoDAO.php";
+require_once "../modelo/ProductoDTO.php";
 
 if (trim($_POST["id"]) == ""
     || trim($_POST["nombre"]) == ""
@@ -13,5 +13,5 @@ if (trim($_POST["id"]) == ""
     $nombre = trim($_POST["nombre"]);
     $descripcion = trim($_POST["descripcion"]);
     $precio = trim($_POST["precio"]);
-    $update = new ProductoDAO($id, $nombre, $descripcion, $precio);
+    $update = new ProductoDTO($id, $nombre, $descripcion, $precio);
 }

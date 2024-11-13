@@ -14,11 +14,11 @@ class CompraDAO {
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(":cliente_id", $clienteId);
         $stmt->execute();
-        $resultados = $stmt->fetch(PDO::FETCH_ASSOC);
+        $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         $compras = [];
         foreach ($resultados as $fila) {
-            $compra = new CompraDTO(null, $fila["cliente_id"], $fila["producto_id"], $fila["fecha_compra"], $fila["cantidad"]);
+            $compra = new CompraDTO($fila["id"], $fila["cliente_id"], $fila["producto_id"], $fila["fecha_compra"], $fila["cantidad"]);
             $compras[] = $compra;
         }
         return $compras;

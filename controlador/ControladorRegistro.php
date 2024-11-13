@@ -16,7 +16,7 @@ if (trim($_POST["nombre"]) == ""
     $password = trim($_POST["password"]);
     $telefono = trim($_POST["telefono"]);
     $domicilio = trim($_POST["domicilio"]);
-    $cliente = new ClienteDTO($nombre, $apellido, $nickname, $password, $telefono, $domicilio);
+    $cliente = new ClienteDTO(null, $nombre, $apellido, $nickname, $password, $telefono, $domicilio);
 
     try {
         $clienteDAO = new ClienteDAO();

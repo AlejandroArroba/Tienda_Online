@@ -14,7 +14,7 @@
         <a href="compra.php" class="cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
     </div>
     <form action="../controlador/ControladorUpdate.php" method="post" enctype="multipart/form-data">
-        <label for="id">Id</label>
+        <label for="id">ID:</label>
         <input type="number" name="id" id="id">
         <br>
         <label for="nombre">Nombre:</label>
