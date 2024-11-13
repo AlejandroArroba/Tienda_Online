@@ -12,14 +12,25 @@
         Añadir Producto
         <a href="compra.php" class="cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
     </div>
-    <form action="../controlador/ControladorAnadir.php" method="post">
-        <label for="nombre"></label>
+    <form action="../controlador/ControladorAnadir.php" method="post" enctype="multipart/form-data">
+        <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" id="nombre">
-        <label for="descripcion"></label>
+        <br>
+        <label for="descripcion">Descripción:</label>
         <input type="text" name="descripcion" id="descripcion">
-        <label for="precio"></label>
+        <br>
+        <label for="precio">Precio:</label>
         <input type="number" name="precio" id="precio">
+        <br>
         <input type="submit" value="Añadir">
     </form>
+    <?php
+    require_once "../modelo/ProductoDTO.php";
+    session_start();
+    if (isset($_SESSION['errorAnadir'])) {
+        echo "<span class='error'> Por favor rellene todos los datos</span>";
+        unset($_SESSION['errorAnadir']);
+    }
+    ?>
 </body>
 </html>

@@ -10,7 +10,7 @@ if (trim($_POST["nombre"]) == "" || trim($_POST["descripcion"]) == "" || trim($_
     $nombre = trim($_POST["nombre"]);
     $descripcion = trim($_POST["descripcion"]);
     $precio = trim($_POST["precio"]);
-    $producto = new ProductoDTO($nombre, $descripcion, $precio);
+    $producto = new ProductoDTO(null, $nombre, $descripcion, $precio);
 
     try {
         $productoDAO = new ProductoDAO();
