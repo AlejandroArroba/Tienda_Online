@@ -30,7 +30,7 @@
             <th>Nombre</th>
             <th>Descripcion</th>
             <th>Precio</th>
-            <th>Accion</th>
+            <th>Acción</th>
         </tr>
         <?php foreach ($productos as $producto) { ?>
             <tr>

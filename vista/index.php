@@ -30,12 +30,19 @@ $productos = $productoDAO->getAllProductos();
             <th>Nombre</th>
             <th>Descripcion</th>
             <th>Precio</th>
+            <th>Acción</th>
         </tr>
         <?php foreach ($productos as $producto) { ?>
             <tr>
+                <td><?= $producto->getId() ?></td>
                 <td><?= $producto->getNombre() ?></td>
                 <td><?= $producto->getDescripcion() ?></td>
                 <td><?= $producto->getPrecio() ?></td>
+                <td>
+                    <form action="../controlador/ControladorCompra.php" method="POST">
+                        <button name="idProducto" value="<?= $producto->getId() ?>" type="submit">🛒</button>
+                    </form>
+                </td>
             </tr>
         <?php } ?>
     </table>

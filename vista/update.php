@@ -26,7 +26,7 @@
         <label for="precio">Precio:</label>
         <input type="number" name="precio" id="precio">
         <br>
-        <input type="submit" value="Añadir">
+        <input type="submit" value="Actualizar">
     </form>
     <?php
     require_once "../modelo/ProductoDTO.php";
