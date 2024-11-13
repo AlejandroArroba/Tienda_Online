@@ -14,7 +14,7 @@
         <a href="compra.php" class="cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
     </div>
     <form action="../controlador/ControladorAnadir.php" method="post" enctype="multipart/form-data">
-        <label for="nombre">Nombre producto:</label>
+        <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" id="nombre">
         <br>
         <label for="descripcion">Descripción:</label>

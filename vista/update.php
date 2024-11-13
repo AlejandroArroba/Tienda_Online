@@ -28,5 +28,13 @@
         <br>
         <input type="submit" value="Añadir">
     </form>
+    <?php
+    require_once "../modelo/ProductoDTO.php";
+    session_start();
+    if (isset($_SESSION["errorUpdate"])) {
+        echo "<span class='error'> Por favor rellene todos los datos</span>";
+        unset($_SESSION["errorUpdate"]);
+    }
+    ?>
 </body>
 </html>
