@@ -39,6 +39,7 @@
             <th>Descripcion</th>
             <th>Precio</th>
             <th>Acción</th>
+            <th>Imagen</th>
         </tr>
         <?php foreach ($productos as $producto) { ?>
             <tr>
@@ -51,6 +52,7 @@
                         <button name="idProducto" value="<?= $producto->getId() ?>" type="submit">🛒</button>
                     </form>
                 </td>
+                <td><?= $producto->getImagen() ?></td>
             </tr>
         <?php } ?>
     </table>

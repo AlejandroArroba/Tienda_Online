@@ -19,7 +19,7 @@ class ProductoDAO {
         $fila = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($fila) {
-            return new ProductoDTO($fila["id"], $fila["nombre"], $fila["descripcion"], $fila["precio"]);
+            return new ProductoDTO($fila["id"], $fila["nombre"], $fila["descripcion"], $fila["precio"], $fila["imagen"]);
         }
         return null; // si no se encuentra, devolvemos null
     }
@@ -33,7 +33,7 @@ class ProductoDAO {
 
         $productos = [];
         foreach ($resultados as $fila) {
-            $producto = new ProductoDTO($fila["id"], $fila["nombre"], $fila["descripcion"], $fila["precio"]);
+            $producto = new ProductoDTO($fila["id"], $fila["nombre"], $fila["descripcion"], $fila["precio"], $fila["imagen"]);
             $productos[] = $producto;
         }
         return $productos;
@@ -45,11 +45,12 @@ class ProductoDAO {
         $descripcion = $producto->getDescripcion();
         $precio = $producto->getPrecio();
 
-        $sql = "INSERT INTO producto (nombre, descripcion, precio) VALUES (:nombre, :descripcion, :precio)";
+        $sql = "INSERT INTO producto (nombre, descripcion, precio, imagen) VALUES (:nombre, :descripcion, :precio, :imagen)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(":nombre", $nombre);
         $stmt->bindParam(":descripcion", $descripcion);
         $stmt->bindParam(":precio", $precio);
+        $stmt->bindParam(":imagen", $imagen);
         return $stmt->execute();
     }
 
@@ -58,12 +59,14 @@ class ProductoDAO {
         $nombre = $producto->getNombre();
         $descripcion = $producto->getDescripcion();
         $precio = $producto->getPrecio();
+        $imagen = $producto->getImagen();
 
-        $sql = "UPDATE producto SET nombre=:nombre, descripcion=:descripcion, precio=:precio WHERE id=:id";
+        $sql = "UPDATE producto SET nombre=:nombre, descripcion=:descripcion, precio=:precio, imagen=:imagen WHERE id=:id";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(":nombre", $nombre);
         $stmt->bindParam(":descripcion", $descripcion);
         $stmt->bindParam(":precio", $precio);
+        $stmt->bindParam(":imagen", $imagen);
         $stmt->bindParam(":id", $id);
         return $stmt->execute();
     }

@@ -6,12 +6,14 @@ class ProductoDTO {
     private $nombre;
     private $descripcion;
     private $precio;
+    private $imagen;
 
-    public function __construct($id, $nombre, $descripcion, $precio) {
+    public function __construct($id, $nombre, $descripcion, $precio, $imagen) {
         $this->id = $id;
         $this->nombre = $nombre;
         $this->descripcion = $descripcion;
         $this->precio = $precio;
+        $this->imagen = $imagen;
     }
 
     // ---------------------
@@ -33,6 +35,10 @@ class ProductoDTO {
         return $this->precio;
     }
 
+    public function getImagen() {
+        return $this->imagen;
+    }
+
     public function setId($id) {
         $this->id = $id;
     }
@@ -49,4 +55,7 @@ class ProductoDTO {
         $this->precio = $precio;
     }
 
+    public function setImagen($imagen) {
+        $this->imagen = $imagen;
+    }
 }
