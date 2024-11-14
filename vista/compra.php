@@ -49,13 +49,15 @@
                 <td><?= $compra->getFechaCompra() ?></td>
                 <td><?= $compra->getCantidad() ?></td>
                 <td>
-                    <form action="../controlador/ControladorBorrarCompra.php" method="POST">
-                        <button name="idCompra" value="<?= $compra->getId() ?>" type="submit">➖</button>
+                    <form action="../controlador/ControladorCompra.php" method="POST">
+                        <input type="hidden" name="idCompra" value="<?= $compra->getId() ?>">
+                        <button type="submit" name="accion" value="deleteCompra">➖</button>
                     </form>
                 </td>
                 <td>
-                    <form action="../controlador/ControladorBorrarCompraTotal.php" method="POST">
-                        <button name="idCompra" value="<?= $compra->getId() ?>" type="submit">🗑️</button>
+                    <form action="../controlador/ControladorCompra.php" method="POST">
+                        <input type="hidden" name="idCompra" value="<?= $compra->getId() ?>">
+                        <button type="submit" name="accion" value="deleteAllCompras">🗑️</button>
                     </form>
                 </td>
             </tr>

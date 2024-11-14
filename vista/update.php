@@ -21,7 +21,7 @@
             <button type="submit" class="salida"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
         </form>
     </div>
-    <form action="../controlador/ControladorUpdate.php" method="post" enctype="multipart/form-data">
+    <form action="../controlador/ControladorProducto.php" method="POST" enctype="multipart/form-data">
         <label for="id">ID:</label>
         <input type="number" name="id" id="id">
         <br>
@@ -34,7 +34,7 @@
         <label for="precio">Precio:</label>
         <input type="number" name="precio" id="precio">
         <br>
-        <input type="submit" value="Actualizar">
+        <button type="submit" name="accion" value="updateProducto">Actualizar</button>
     </form>
     <?php
     require_once "../modelo/ProductoDTO.php";

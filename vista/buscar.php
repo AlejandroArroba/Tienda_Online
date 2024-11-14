@@ -22,10 +22,10 @@
             <button type="submit" class="salida"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
         </form>
     </div>
-    <form action="../controlador/ControladorBuscar.php" method="post">
+    <form action="../controlador/ControladorProducto.php" method="POST">
         <label for="id">ID del producto a buscar:</label>
         <input type="number" name="id" id="id">
-        <input type="submit" value="Buscar">
+        <button type="submit" name="accion" value="getProductoById">Buscar</button>
     </form>
     <?php
         require_once "../modelo/ProductoDTO.php";

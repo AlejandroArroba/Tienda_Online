@@ -19,7 +19,7 @@ class ProductoDAO {
         $fila = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($fila) {
-            return new ProductoDTO($fila["id"], $fila["nombre"], $fila["descripcion"], $fila["precio"], $fila["imagen"]);
+            return new ProductoDTO($fila["id"], $fila["nombre"], $fila["descripcion"], $fila["precio"]);
         }
         return null; // si no se encuentra, devolvemos null
     }
@@ -33,7 +33,7 @@ class ProductoDAO {
 
         $productos = [];
         foreach ($resultados as $fila) {
-            $producto = new ProductoDTO($fila["id"], $fila["nombre"], $fila["descripcion"], $fila["precio"], $fila["imagen"]);
+            $producto = new ProductoDTO($fila["id"], $fila["nombre"], $fila["descripcion"], $fila["precio"]);
             $productos[] = $producto;
         }
         return $productos;
@@ -45,28 +45,26 @@ class ProductoDAO {
         $descripcion = $producto->getDescripcion();
         $precio = $producto->getPrecio();
 
-        $sql = "INSERT INTO producto (nombre, descripcion, precio, imagen) VALUES (:nombre, :descripcion, :precio, :imagen)";
+        $sql = "INSERT INTO producto (nombre, descripcion, precio) VALUES (:nombre, :descripcion, :precio)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(":nombre", $nombre);
         $stmt->bindParam(":descripcion", $descripcion);
         $stmt->bindParam(":precio", $precio);
-        $stmt->bindParam(":imagen", $imagen);
         return $stmt->execute();
     }
 
     // Actualizar producto
-    public function updateProducto($id, ProductoDTO $producto) {
+    public function updateProducto(ProductoDTO $producto) {
+        $id = $producto->getId();
         $nombre = $producto->getNombre();
         $descripcion = $producto->getDescripcion();
         $precio = $producto->getPrecio();
-        $imagen = $producto->getImagen();
 
-        $sql = "UPDATE producto SET nombre=:nombre, descripcion=:descripcion, precio=:precio, imagen=:imagen WHERE id=:id";
+        $sql = "UPDATE producto SET nombre=:nombre, descripcion=:descripcion, precio=:precio WHERE id=:id";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(":nombre", $nombre);
         $stmt->bindParam(":descripcion", $descripcion);
         $stmt->bindParam(":precio", $precio);
-        $stmt->bindParam(":imagen", $imagen);
         $stmt->bindParam(":id", $id);
         return $stmt->execute();
     }

@@ -39,7 +39,6 @@
             <th>Descripcion</th>
             <th>Precio</th>
             <th>Acción</th>
-            <th>Imagen</th>
         </tr>
         <?php foreach ($productos as $producto) { ?>
             <tr>
@@ -49,7 +48,8 @@
                 <td><?= $producto->getPrecio() ?></td>
                 <td>
                     <form action="../controlador/ControladorCompra.php" method="POST">
-                        <button name="idProducto" value="<?= $producto->getId() ?>" type="submit">🛒</button>
+                        <input type="hidden" name="idProducto" value="<?= $producto->getId() ?>">
+                        <button type="submit" name="accion" value="addCompra">🛒</button>
                     </form>
                 </td>
                 <td><?= $producto->getImagen() ?></td>

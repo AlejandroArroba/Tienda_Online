@@ -41,8 +41,9 @@
                 <td><?= $producto->getDescripcion() ?></td>
                 <td><?= $producto->getPrecio() ?></td>
                 <td>
-                    <form action="../controlador/ControladorBorrar.php" method="POST">
-                        <button name="idProducto" value="<?= $producto->getId() ?>" type="submit">🗑️</button>
+                    <form action="../controlador/ControladorProducto.php" method="POST">
+                        <input type="hidden" name="idProducto" value="<?= $producto->getId() ?>">
+                        <button type="submit" name="accion" value="deleteProducto">🗑️</button>
                     </form>
                 </td>
             </tr>
