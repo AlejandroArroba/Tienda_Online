@@ -17,7 +17,7 @@ if (isset($_POST["accion"])) {
             } else {
                 $compraDAO->addCompra(new CompraDTO(null, $_SESSION["idUsuario"], $_POST["idProducto"], date("Y-m-d"), 1));
             }
-            header("location: ../vista/compra.php");
+            header("location: ../vista/index.php");
             break;
         // BORRAR COMPRA
         case "deleteCompra":
@@ -33,7 +33,6 @@ if (isset($_POST["accion"])) {
             break;
         // BORRAR TODAS LAS COMRPAS
         case "deleteAllCompras":
-            $compraDAO = new CompraDAO();
             $compra = $compraDAO->getCompraById($_POST["idCompra"]);
             $compraDAO->deleteCompra($compra);
             header("location: ../vista/compra.php");

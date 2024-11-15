@@ -1,0 +1,46 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #d8d8d8;
+}
+
+.register {
+    text-align: center;
+    padding: 30px;
+    background-color: #95f6ff;
+    border-radius: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: auto;
+}
+
+.register h1 {
+    background-color: #12c4fa;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.register input[type="text"],
+.register input[type="password"],
+.register input[type="number"],
+.register input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.register p {
+    margin-top: 10px;
+}
+
+.register p a {
+    color: #12c4fa;
+    text-decoration: none;
+}

@@ -8,8 +8,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Lista de Productos</title>
+        <link rel="stylesheet" href="../resources/css/style.css">
+        <link rel="stylesheet" href="../resources/css/stylesBuscar.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link rel="stylesheet" href="../resources/style.css">
     </head>
     <body>
     <div class="header">
@@ -22,7 +23,7 @@
             <button type="submit" class="salida"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
         </form>
     </div>
-    <form action="../controlador/ControladorProducto.php" method="POST">
+    <form action="../controlador/ControladorProducto.php" method="POST" class="buscar-producto">
         <label for="id">ID del producto a buscar:</label>
         <input type="number" name="id" id="id">
         <button type="submit" name="accion" value="getProductoById">Buscar</button>

@@ -15,7 +15,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Carrito de la Compra</title>
-        <link rel="stylesheet" href="../resources/style.css">
+        <link rel="stylesheet" href="../resources/css/style.css">
+        <link rel="stylesheet" href="../resources/css/stylesCompra.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     </head>
     <body>
@@ -24,7 +25,7 @@
         Carrito de la compra
         <a href="compra.php" class="cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
     </div>
-    <table>
+    <table class="carrito-compra">
         <?php
             if (count($compras) == 0) {
                 echo "<p>No hay productos en el carrito.</p>";

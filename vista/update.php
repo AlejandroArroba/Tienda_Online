@@ -7,8 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Actualizar Producto</title>
+    <link rel="stylesheet" href="../resources/css/style.css">
+    <link rel="stylesheet" href="../resources/css/stylesUpdate.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="../resources/style.css">
 </head>
 <body>
     <div class="header">
@@ -21,7 +22,7 @@
             <button type="submit" class="salida"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
         </form>
     </div>
-    <form action="../controlador/ControladorProducto.php" method="POST" enctype="multipart/form-data">
+    <form action="../controlador/ControladorProducto.php" method="POST" class="actualizar-producto">
         <label for="id">ID:</label>
         <input type="number" name="id" id="id">
         <br>
