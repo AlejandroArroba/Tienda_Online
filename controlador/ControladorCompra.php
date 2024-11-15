@@ -31,6 +31,7 @@ if (isset($_POST["accion"])) {
             }
             header("location: ../vista/compra.php");
             break;
+        // BORRAR TODAS LAS COMRPAS
         case "deleteAllCompras":
             $compraDAO = new CompraDAO();
             $compra = $compraDAO->getCompraById($_POST["idCompra"]);
